@@ -27,6 +27,10 @@ module.exports = {
       }
     ]
   },
+  devServer:{
+    stats: "errors-only",
+    open: true
+  },
   plugins: [
     HtmlWebpackConfig,
     new ExtractTextPlugin({
