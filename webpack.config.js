@@ -1,3 +1,4 @@
+var debug = process.env.NODE_ENV !== "production";
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpack = require('html-webpack-plugin');
 var HtmlWebpackConfig = new HtmlWebpack({
@@ -10,10 +11,11 @@ var HtmlWebpackConfig = new HtmlWebpack({
 })
 
 module.exports = {
-  entry: "./src/js/app.js",
+  entry: "./src/js/index.js",
+  devtool: debug ? "inline-sourcemap" : null,
   output: {
     path: __dirname + "/dist/",
-    filename: "app.min.js"
+    filename: "index.min.js"
   },
   module: {
     rules: [
@@ -34,10 +36,6 @@ module.exports = {
         }
       }
     ]
-  },
-  devServer:{
-    stats: "errors-only",
-    open: true
   },
   plugins: [
     HtmlWebpackConfig,
