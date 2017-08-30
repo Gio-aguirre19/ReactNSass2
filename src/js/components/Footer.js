@@ -1,12 +1,14 @@
 import React from "react";
 
+var d = new Date();
+var Year = d.getFullYear();
 
 export default class Footer extends React.Component {
   render() {
     return (
       <footer>
-        <div>2017</div>
         <div>Giotest</div>
+        <div>{ Year }</div>
       </footer>
   )}
 }
